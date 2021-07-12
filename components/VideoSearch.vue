@@ -64,17 +64,17 @@ export default {
             count: this.per_page,
         }})
         .then(response => {
-          console.log(response.items);
-          this.items = response.items;
+          this.items = response;
       })
     },
 
     openPlayer(item) {
       let player;
+      console.log(item);
       player = new YT.Player('player-'+item.etag, {
         height: '360',
         width: '640',
-        videoId: item.id.videoId,
+        videoId: item.id,
         events: {
           'onReady': this.onPlayerReady,
           'onStateChange': this.onPlayerStateChange
